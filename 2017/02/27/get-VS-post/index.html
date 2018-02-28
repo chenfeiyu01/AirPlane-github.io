@@ -10,7 +10,14 @@
 
     <!--Description-->
     
-        <meta name="description" content="来自w3c的“标准答案”">
+        <meta name="description" content="“说一下GET和POST的区别”来自w3c的“标准答案”
+GET在浏览器回退时是无害的，而POST会再次提交请求。
+
+GET产生的URL地址可以被Bookmark，而POST不可以。
+
+GET请求会被浏览器主动cache，而POST不会，除非手动设置。
+
+GET请求只能进行url编码，而POST支持">
     
 
     <!--Author-->
@@ -180,7 +187,45 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3 id="来自w3c的“标准答案”"><a href="#来自w3c的“标准答案”" class="headerlink" title="来自w3c的“标准答案”"></a>来自w3c的“标准答案”</h3>
+                <h1 id="“说一下GET和POST的区别”"><a href="#“说一下GET和POST的区别”" class="headerlink" title="“说一下GET和POST的区别”"></a>“说一下GET和POST的区别”</h1><h3 id="来自w3c的“标准答案”"><a href="#来自w3c的“标准答案”" class="headerlink" title="来自w3c的“标准答案”"></a>来自w3c的“标准答案”</h3><ul>
+<li><p>GET在浏览器回退时是无害的，而POST会再次提交请求。</p>
+</li>
+<li><p>GET产生的URL地址可以被Bookmark，而POST不可以。</p>
+</li>
+<li><p>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</p>
+</li>
+<li><p>GET请求只能进行url编码，而POST支持多种编码方式。</p>
+</li>
+<li><p>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</p>
+</li>
+<li><p>GET请求在URL中传送的参数是有长度限制的，而POST么有。</p>
+</li>
+<li><p>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</p>
+</li>
+<li><p>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</p>
+</li>
+<li><p>GET参数通过URL传递，POST放在Request body中。</p>
+</li>
+</ul>
+<h2 id="然而，这样就结束了吗？这道看似简单的面试题其实另有玄机。"><a href="#然而，这样就结束了吗？这道看似简单的面试题其实另有玄机。" class="headerlink" title="然而，这样就结束了吗？这道看似简单的面试题其实另有玄机。"></a>然而，这样就结束了吗？这道看似简单的面试题其实另有玄机。</h2><p><img src="http://ac-myg6wstv.clouddn.com/4c4df06ba4f7ae463376" alt="img"></p>
+<h3 id="GET和POST与数据如何传递没有关系"><a href="#GET和POST与数据如何传递没有关系" class="headerlink" title="GET和POST与数据如何传递没有关系"></a>GET和POST与数据如何传递没有关系</h3><p>​     GET和POST是由<a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.w3.org%2FProtocols%2Frfc2616%2Frfc2616.html" target="_blank" rel="noopener">HTTP协议定义</a>的。在HTTP协议中，Method和Data（URL， Body， Header）是正交的两个概念，也就是说，<strong>使用哪个Method与应用层的数据如何传输是没有相互关系的</strong>。</p>
+<p>​     HTTP没有要求，如果Method是POST数据就要放在BODY中。也没有要求，如果Method是GET，数据（参数）就一定要放在URL中而不能放在BODY中。</p>
+<p>​     那么，网上流传甚广的这个说法是从何而来的呢？我<a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.w3.org%2FTR%2FREC-html40%2Finteract%2Fforms.html%23h-17.13.1" target="_blank" rel="noopener">在HTML标准中，找到了相似的描述</a>。这和网上流传的说法一致。但是这只是HTML标准对HTTP协议的用法的约定。怎么能当成GET和POST的区别呢？</p>
+<p>​    而且，现代的Web Server都是支持GET中包含BODY这样的请求。虽然这种请求不可能从浏览器发出，但是现在的Web Server又不是只给浏览器用，已经完全地超出了HTML服务器的范畴了。</p>
+<p>除此之外，get和post还有一个重大区别</p>
+<p>简单地说：</p>
+<p>GET产生一个TCP数据包；POST产生两个TCP数据包。</p>
+<p>长的说：</p>
+<p>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；</p>
+<p>而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。</p>
+<p>也就是说，GET只需要汽车跑一趟就把货送到了，而POST得跑两趟，第一趟，先去和服务器打个招呼“嗨，我等下要送一批货来，你们打开门迎接我”，然后再回头把货送过去。</p>
+<p>因为POST需要两步，时间上消耗的要多一点，看起来GET比POST更有效。因此Yahoo团队有推荐用GET替换POST来优化网站性能。但这是一个坑！跳入需谨慎。为什么？</p>
+<ol>
+<li>GET与POST都有自己的语义，不能随便混用。</li>
+<li>据研究，在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点。</li>
+<li>并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。</li>
+</ol>
+
 
                 
             </div>
