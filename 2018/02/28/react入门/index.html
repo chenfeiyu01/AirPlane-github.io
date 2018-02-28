@@ -10,9 +10,15 @@
 
     <!--Description-->
     
-        <meta name="description" content="1、npm安装node-scss、sass-loader scss-loader
-2、在webpack.base.conf.js中加入如下配置：
-123456789&amp;#123;        test: /.vue$/,        loader: &amp;apos;vue-loader&amp;apos;, ">
+        <meta name="description" content="引入的三个js文件：
+1、react.js
+2、react-DOM.js
+3、browser.min.js
+前两个分别是react核心文件和reactDOM操作的库
+browser文件是将JSX语法转化为js语法的库
+使用JSX语法的script标签的type属性要写成 text/babel
+
+re">
     
 
     <!--Author-->
@@ -22,7 +28,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="在vue中使用scss作为css预编辑器"/>
+        <meta property="og:title" content="react入门"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +50,7 @@
 
     <!-- Title -->
     
-    <title>在vue中使用scss作为css预编辑器 - Voler</title>
+    <title>react入门 - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -154,13 +160,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>在vue中使用scss作为css预编辑器</h1>
+                    <h1>react入门</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2017-03-14
+                            2018-02-28
                         
                     </span>
                 </div>
@@ -182,11 +188,49 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>1、npm安装node-scss、sass-loader scss-loader</p>
-<p>2、在webpack.base.conf.js中加入如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">        test: /.vue$/,</span><br><span class="line"></span><br><span class="line">        loader: &apos;vue-loader&apos;,</span><br><span class="line"></span><br><span class="line">        options: vueLoaderConfig</span><br><span class="line"></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<p>3、在style标签上作出如下声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style rel=&quot;stylesheet/scss&quot; lang=&quot;scss&quot;&gt;</span><br></pre></td></tr></table></figure>
+                <p>引入的三个js文件：</p>
+<p>1、react.js</p>
+<p>2、react-DOM.js</p>
+<p>3、browser.min.js</p>
+<p>前两个分别是react核心文件和reactDOM操作的库</p>
+<p>browser文件是将JSX语法转化为js语法的库</p>
+<p>使用JSX语法的script标签的type属性要写成 text/babel</p>
+<p><img src="D:/%E4%BA%91%E7%AC%94%E8%AE%B0/849767414@qq.com/dda130eab98f4d55b586b47848364216/clipboard.png" alt="img"></p>
+<p>react.render()方法，插入内容在元素中</p>
+<p>react.render()方法会直接替换掉目标元素中的内容</p>
+<p>有三个参数：</p>
+<p>第一个参数：要添加的内容</p>
+<p>第二个参数：添加进入的元素,可以使用随意的获取元素的方式</p>
+<p>第三个参数：回调函数</p>
+<p>JSX语法允许html和js混写，html部分可以直接书写，js部分需要用{}号包裹起来</p>
+<p>let arr=[“shit”,”dick”,”ass”]</p>
+<p>​    ReactDOM.render(</p>
+<p>​                <ul></ul></p>
+<p>​                    {</p>
+<p>​                        arr.map(function(value,index){</p>
+<p>​                            return <li key="{index}">{value}</li></p>
+<p>​                        })</p>
+<p>​                    }</p>
+<p>​                ,</p>
+<p>​            document.getElementsByClassName(“wangbadan”)[0]</p>
+<p>​        )</p>
+<p>疑点：似乎新版本的react（不清楚具体版本，比阮一峰博文<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2015/03/react.html</a>要晚的版本）中添加数组内容需要加上key属性不然会报错</p>
+<p><img src="D:/%E4%BA%91%E7%AC%94%E8%AE%B0/849767414@qq.com/0f2fbe72f4264e4ca8440d4e9cd4392f/clipboard.png" alt="img"></p>
+<p>但并不影响正常显示，改变数组中设置好的key值也不会改变数组遍历的顺序</p>
+<p>react创建一个组件：react.creatClass({})        </p>
+<p>//最新ES6语法写 : class Zujian extends React.Component{}    创建一个Zujian类，继承的是React.Component</p>
+<p>其中的内容为对象，目前已知属性有：render</p>
+<p>render的值为一个函数，return返回要添加的内容</p>
+<p>render:function(){}        //es6语法写为render(){}</p>
+<p>return返回的值必须为一个元素，如果出现两个及以上元素会报错。所以建议使用div包起来。如果要在组件添加的内容中使用组件的属性，可以使用this.props.attr获取组件的属性</p>
+<p>添加组件属性，有一个地方需要注意，就是 class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。</p>
+<p><img src="D:/%E4%BA%91%E7%AC%94%E8%AE%B0/849767414@qq.com/e16749a85a70445fbd89b3fd7a98e463/clipboard.png" alt="img"></p>
+<p><img src="D:/%E4%BA%91%E7%AC%94%E8%AE%B0/849767414@qq.com/90b11c073d07452baeea1549e408fc2c/clipboard.png" alt="img"></p>
+<p>react中定义的组件名称必须为开头大写，不然会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Zujian extends React.Component&#123;</span><br><span class="line"></span><br><span class="line">		render() &#123;</span><br><span class="line"></span><br><span class="line">			return &lt;div&gt;</span><br><span class="line"></span><br><span class="line">				&lt;h1&gt;Hello,Please&#123;this.props.id&#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">				&lt;p&gt;这是一行p标签&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">			&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	ReactDOM.render(</span><br><span class="line"></span><br><span class="line">		&lt;Zujian  id=&quot;suck my dick&quot;&gt;&lt;/Zujian&gt;,</span><br><span class="line"></span><br><span class="line">		app</span><br><span class="line"></span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
+<p>组件中获取属性使用 this.props,但有一个例外是this.props.children.</p>
+<p>this.props.children用来选取组件中包含的所有子元素。</p>
+<p>使用 React.children.map(this.props.children,function(){})可以遍历所有子节点，如果直接使用this.props.children.map进行遍历，在组件中不包含子元素的情况下会报错，使用React.children则不会。</p>
 
 
                 
