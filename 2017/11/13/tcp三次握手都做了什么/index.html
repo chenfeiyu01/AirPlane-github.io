@@ -10,6 +10,10 @@
 
     <!--Description-->
     
+        <meta name="description" content="建立TCP需要三次握手才能建立，而断开连接则需要四次握手。
+
+第一次握手：客户端主动打开连接，发送带有SYN=1，ACK=0的TCP报文到服务器，初始序号X，保存在包头的序列号（Sequence Number）中，同时客户端进入SYN_SEND状态。第二次握手：服务器收到SYN包，确认SYN（ack">
+    
 
     <!--Author-->
     
@@ -18,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Voler"/>
+        <meta property="og:title" content="tcp三次握手都做了什么"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>Voler</title>
+    <title>tcp三次握手都做了什么 - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -143,141 +147,65 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://static01.lvye.com/forum/201509/13/155330h01ald2rzx1ra6nm.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Voler</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>tcp三次握手都做了什么</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-11-13
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2018/02/27/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-02-27
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/11/13/tcp三次握手都做了什么/">
-        <h2 class="post-title">
-            tcp三次握手都做了什么
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-11-13
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/10/28/简单记录一下我的ATOM插件/">
-        <h2 class="post-title">
-            简单记录一下我的ATOM插件
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-10-28
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/08/08/学习笔记：移动端滚动插件JRoll/">
-        <h2 class="post-title">
-            学习笔记：移动端滚动插件JRoll
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-08-08
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/08/07/连等赋值例题/">
-        <h2 class="post-title">
-            连等赋值例题
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-08-07
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/07/28/告别回调地狱——Promise/">
-        <h2 class="post-title">
-            告别回调地狱——Promise
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-07-28
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/02/27/get-VS-post/">
-        <h2 class="post-title">
-            get VS post
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-02-27
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>建立TCP需要三次握手才能建立，而断开连接则需要四次握手。</p>
+<p><img src="http://hi.csdn.net/attachment/201108/7/0_131271823564Rx.gif" alt="img"></p>
+<p><strong>第一次握手</strong>：客户端主动打开连接，发送带有SYN=1，ACK=0的TCP报文到服务器，初始序号X，保存在包头的序列号（Sequence Number）中，同时客户端进入SYN_SEND状态。<br><strong>第二次握手</strong>：服务器收到SYN包，确认SYN（ack=x+1）将确认序号(Acknowledgement Number)设置为客户的ISN加1以.即X+1，自己发送一个SYN（seq=y），同时服务器进入SYN_RECV状态<br><strong>第三次握手</strong>： 客户端收到服务器的SYN+ACK， 回复ACK=1, ack=y+1，在数据段放写seq+1（即ISN+1）。同时端和服务器进入ESTABLISHED状态，完成三次握手。</p>
+<p>至于为什么不是两次或四次……</p>
+<blockquote>
+<p>三次握手：<br>“喂，你听得到吗？”<br>“我听得到呀，你听得到我吗？”<br>“我能听到你，今天balabala……”</p>
+<p>两次握手：<br>“喂，你听得到吗？”<br>“我听得到呀”<br>“喂喂，你听得到吗？”<br>“草，我听得到呀！！！！”<br>“你TM能不能听到我讲话啊！！喂！”<br>“……”</p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
