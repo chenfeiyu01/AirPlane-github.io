@@ -10,6 +10,10 @@
 
     <!--Description-->
     
+        <meta name="description" content="学习IScroll时，发现这个插件并不好用，全英的官网及参考手册本身就产生了可能误解其操作含义的可能性。再加上多次试用，发现使用IScroll有一个必要的条件：
+给父元素container加上一个合适的高度
+即，父元素包住的内容部分的高度必须要小于外部父元素的高度。（存疑，但数次操作实例皆发现了这个">
+    
 
     <!--Author-->
     
@@ -18,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Voler"/>
+        <meta property="og:title" content="学习笔记：移动端滚动插件JRoll"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>Archiv - Voler</title>
+    <title>学习笔记：移动端滚动插件JRoll - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -142,114 +146,69 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://static01.lvye.com/forum/201509/13/155330h01ald2rzx1ra6nm.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>学习笔记：移动端滚动插件JRoll</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-08-08
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2018/02/27/hello-world/">
-        <h1 class="post-title archive">
-            Hello World
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-02-27
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>学习IScroll时，发现这个插件并不好用，全英的官网及参考手册本身就产生了可能误解其操作含义的可能性。再加上多次试用，发现使用IScroll有一个必要的条件：</p>
+<p>给父元素container加上一个合适的高度</p>
+<p>即，父元素包住的内容部分的高度必须要小于外部父元素的高度。（存疑，但数次操作实例皆发现了这个问题）。这种条件限制就已经产生了一些问题。</p>
+<p>我相信一个拥有强迫症的程序员不会想要自己去设置父元素的死高度，因为这样做很容易出现各种兼容性以及布局bug。</p>
+<p>因此，在一个星期前开始改用国人改良的滚动插件JRoll，中文名称“醉萝卜“<a href="https://link.jianshu.com/?t=http://www.chjtx.com/JRoll/" target="_blank" rel="noopener">www.chjtx.com/JRoll/</a>，官网在此。经过试用，发现这个插件简单易用，非常适合新手使用，它不依赖任何js插件，完全靠原生JS实现功能，基本操作和IScroll无异。</p>
+<p>1.引入jroll.min.js文件。</p>
+<p>2.在script标签中初始化jroll</p>
+<p>var myjr = new JRoll(“class”,{})</p>
+<p>3.详细的API操作可以直接参考官网，与IScroll大致无异。</p>
+<p>JRoll还不像IScroll一样有许多不同的插件类型如 probe zoom等，所有功能集合在同一个js文件中，缩放，scroll功能都可以实现。</p>
+<p>目前已发现的问题：无法改动bounce效果，只有简单的回弹，不知以后的版本会不会改进。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/10/28/简单记录一下我的ATOM插件/">
-        <h1 class="post-title archive">
-            简单记录一下我的ATOM插件
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-28
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/08/08/学习笔记：移动端滚动插件JRoll/">
-        <h1 class="post-title archive">
-            学习笔记：移动端滚动插件JRoll
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-08
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/08/07/连等赋值例题/">
-        <h1 class="post-title archive">
-            连等赋值例题
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-07
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/07/28/告别回调地狱——Promise/">
-        <h1 class="post-title archive">
-            告别回调地狱——Promise
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-07-28
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/02/27/get-VS-post/">
-        <h1 class="post-title archive">
-            get VS post
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-02-27
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
