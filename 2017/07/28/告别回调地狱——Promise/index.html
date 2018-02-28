@@ -10,6 +10,12 @@
 
     <!--Description-->
     
+        <meta name="description" content="什么是“回调地狱”？
+我们很难一眼就看懂异步JavaScript，或者是使用回调函数的JavaScript程序。例如下面这段代码：
+fs.readdir(source, function (err, files) {
+  if (err) {
+    console.log(&amp;apos;Error ">
+    
 
     <!--Author-->
     
@@ -18,7 +24,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Voler"/>
+        <meta property="og:title" content="告别回调地狱——Promise"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +35,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +46,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2017 - Voler</title>
+    <title>告别回调地狱——Promise - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -142,62 +148,97 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://static01.lvye.com/forum/201509/13/155330h01ald2rzx1ra6nm.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2017</h1>
+                <div class="post-heading">
+                    <h1>告别回调地狱——Promise</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-07-28
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/07/28/告别回调地狱——Promise/">
-        <h1 class="post-title archive">
-            告别回调地狱——Promise
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-07-28
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>什么是“回调地狱”？</p>
+<p>我们很难一眼就看懂异步JavaScript，或者是使用回调函数的JavaScript程序。例如下面这段代码：</p>
+<pre><code>fs.readdir(source, function (err, files) {
+  if (err) {
+    console.log(&apos;Error finding files: &apos; + err)
+  } else {
+    files.forEach(function (filename, fileIndex) {
+      console.log(filename)
+      gm(source + filename).size(function (err, values) {
+        if (err) {
+          console.log(&apos;Error identifying file size: &apos; + err)
+        } else {
+          console.log(filename + &apos; : &apos; + values)
+          aspect = (values.width / values.height)
+          widths.forEach(function (width, widthIndex) {
+            height = Math.round(width / aspect)
+            console.log(&apos;resizing &apos; + filename + &apos;to &apos; + height + &apos;x&apos; + height)
+            this.resize(width, height).write(dest + &apos;w&apos; + width + &apos;_&apos; + filename, function(err) {
+              if (err) console.log(&apos;Error writing file: &apos; + err)
+            })
+          }.bind(this))
+        }
+      })
+    })
+  }
+})
+</code></pre><p>这个一堆以})结尾的金字塔，我们很亲切地称它为——“回调地狱”。</p>
+<p>为了解决这种反人类的语言设计，ES2015版本推出了Promise对象，作为替代回调地狱的异步编程方案，</p>
+<p>比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。</p>
+<p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
+<p>其实可以这样理解，Promise函数体的内部包裹着一个异步的请求或者操作或者函数；然后我们可以在这个异步的操作完成的时候使用resolve函数将我们获得的结果传递出去，或者使用reject函数将错误的消息传递出去。</p>
+<p>Promise对象可以通过使用then方法将上一步返回的结果获取过来（不管是resolved还是rejected），可以通过使用catch方法捕获Promise对象在使用catch之前的异常。</p>
+<p>catch方法其实是then方法的一种特例，这个特例就是：</p>
+<pre><code>.then(null, rejection)
+</code></pre><p>相当于我们不使用then方法的第一个函数，只是用第二个函数；catch函数比较简单，就是用来捕获之前的then方法里面的异常。</p>
+<p>Promise.all方法用来包装许多个Promise实例，然后组成了一个新的Promise对象，新的Promise对象的状态由前面几个被包裹的Promise对象的状态决定，如果前面的Promise都被resolve了，那么新的Promise的状态也是resolve的；只要有一个Promise被reject了，那么组成的新的Promise的状态也是reject的。</p>
+<p>Promise.race方法和上面的Promise.all有点类似，都是包装许多的Promise对象，然后组成了一个新的Promise对象，但是使用Promise.race的含义是：只要包裹的的Promise对象中有一个的状态发生了改变，那么组成的这个新的Promise对象的状态就是上面那个率先改变的Promise实例的状态。</p>
+<p>Promise.resolve方法主要是将一个值转变为一个Promise对象，然后使它具有Promise的一些方法和特性，为了满足我们一些特殊情况下的要求。</p>
+<p>以上就是ES6中新增的Promise方法的基本使用。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/02/27/get-VS-post/">
-        <h1 class="post-title archive">
-            get VS post
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-02-27
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
