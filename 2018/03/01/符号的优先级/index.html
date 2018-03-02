@@ -10,13 +10,10 @@
 
     <!--Description-->
     
-        <meta name="description" content="GitHub上有这样一道面试题
-12345var foo=&amp;#123;n:1&amp;#125;;var bar=foo;foo.x=foo=&amp;#123;n:2&amp;#125;;
-求foo.x的值
-我认为这道题的考点主要有这么两点：
-1.引用类型保存的变量
-2.JS赋值语句的步骤
-先看第一点，我们都知道JS中的">
+        <meta name="description" content="console.log(‘Value is ‘ + (val != ‘0’) ? ‘define’ : ‘undefine’);
+无论val被赋值为什么，这道题都只有一个答案：
+define
+加号优先级高于 三目运算。低于括号。 所以括号中无论真假 加上前边的字符串都为 TRUE 三目运算为TRUE">
     
 
     <!--Author-->
@@ -26,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="连等赋值例题"/>
+        <meta property="og:title" content="符号的优先级"/>
     
 
     <!--Open Graph Description-->
@@ -48,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>连等赋值例题 - Voler</title>
+    <title>符号的优先级 - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -142,13 +139,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>连等赋值例题</h1>
+                    <h1>符号的优先级</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2017-08-07
+                            2018-03-01
                         
                     </span>
                 </div>
@@ -170,44 +167,10 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>GitHub上有这样一道面试题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var foo=&#123;n:1&#125;;</span><br><span class="line"></span><br><span class="line">var bar=foo;</span><br><span class="line"></span><br><span class="line">foo.x=foo=&#123;n:2&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>求foo.x的值</strong></p>
-<p>我认为这道题的考点主要有这么两点：</p>
-<p><strong>1.引用类型保存的变量</strong></p>
-<p><strong>2.JS赋值语句的步骤</strong></p>
-<p>先看第一点，我们都知道JS中的数据类型可以分为两类：基本类型和引用类型。</p>
-<p>用通俗易懂的话来解释，我们可以视其为快捷方式与实际文件的差异，基本类型的数据就像电脑中你实际放在桌面上的文件一样，我们可以随意的修改它，因为我们接触到的就是它本身。</p>
-<p>引用类型则不同，举一个小例子：</p>
-<blockquote>
-<p>var a={n:1};</p>
-</blockquote>
-<p>{n:1}这个对象属于引用类型，这个时候它虽然被赋值给了变量a，但a仅仅相当于是一个快捷方式，它指向{n:1}这个对象，当我们在下面再做一个赋值：</p>
-<blockquote>
-<p>var b=a;</p>
-</blockquote>
-<p>的时候，看起来b的值似乎是一个单纯的对象{n:1}，但其实这个时候，b也只是一个快捷方式，它和a共享{n:1}这个对象，因此，一旦通过一些方法：</p>
-<blockquote>
-<p>b.n=3;</p>
-</blockquote>
-<p>来改变这个对象，那么因为a和b都是指向这个对象的快捷方式，它们的本体被改变，两个快捷方式所打开的内容不是也跟着改变了吗？</p>
-<p>这个时候console.log(a);</p>
-<p>会得出结果 {n:3}，这就是引用类型的概念。</p>
-<p>在看第2点，JS的赋值步骤是怎样的？</p>
-<p>我们写一个最常见的赋值公式：</p>
-<blockquote>
-<p>var a=3-1;</p>
-</blockquote>
-<p>将等号右边的值赋给左边的表达式，大致由以下几步完成：</p>
-<p>1.计算出左边表达式的引用，即它指向谁；</p>
-<p>2.计算出右边表达式（3-1）的值，也就是数字2;</p>
-<p>在这里我们可以看出，一个赋值等式是从左至右进行解析引用的</p>
-<p>3.将计算出的右边表达式的值与左边表达式的引用绑定在一起;</p>
-<p>4.返回右边表达式;</p>
-<p>综合一下来说，赋值等式<strong>从左至右</strong>进行引用解析，然后<strong>从右至左</strong>进行赋值操作。</p>
-<p>了解以上两点以后，再回到本题来看，foo指向{n:1}这个对象，同时boo=foo，boo也指向{n:1}这个对象。此时看到本题的关键：foo.x=foo={n:2};这句连等赋值，根据等式赋值步骤，我们首先从左至右解析引用，foo.x指向{n:1}中的x值，foo此时指向{n:1}这个对象。接着，从右至左进行赋值操作，foo指向了一个新的对象{n:2}，也就是将{n: 2}绑定到当前上下文中的名称foo。接着又将{n:2}赋值给foo的x值，通过上文我们可以得知，这个foo.x值其实是指向｛n:1｝这个对象的，也就是说，这个时候的对象{n:1}中是加入了一个x值，变成了{n:1,x:{n:2}}。</p>
-<p>此时再求foo.x的值，答案就很明显了，因为foo已经指向新的对象{n:2}，这个新对象根本没有x这个值，因此答案自然是undefined了。</p>
-<p>如果再延伸一点，求bar.x的值呢？显而易见，bar依然指向最开始的对象{n:1}，也就是现在的{n:2,x:{n:2}}，所以它的x值为对象{n:2}。</p>
+                <p>console.log(‘Value is ‘ + (val != ‘0’) ? ‘define’ : ‘undefine’);</p>
+<p>无论val被赋值为什么，这道题都只有一个答案：</p>
+<p><strong>define</strong></p>
+<p>加号优先级高于 三目运算。低于括号。 所以括号中无论真假 加上前边的字符串都为 TRUE 三目运算为TRUE是 输出 define</p>
 
 
                 
