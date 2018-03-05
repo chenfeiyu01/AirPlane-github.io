@@ -10,6 +10,11 @@
 
     <!--Description-->
     
+        <meta name="description" content="现在我们比较常用的vue渲染方法是客户端渲染：
+html 仅仅作为静态文件，客户端端在请求时，服务端不做任何处理，直接以原文件的形式返回给客户端客户端，然后根据 html 上的 JavaScript，生成 DOM 插入 html。
+
+我们使用vue-cli进行的项目搭建就是这个结构。在首次渲染时，将">
+    
 
     <!--Author-->
     
@@ -18,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Voler"/>
+        <meta property="og:title" content="初识vue ssr"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +34,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>page - Archiv - Voler</title>
+    <title>初识vue ssr - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,155 +131,77 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://static01.lvye.com/forum/201509/13/155330h01ald2rzx1ra6nm.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>初识vue ssr</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-03-05
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/08/08/学习笔记：移动端滚动插件JRoll/">
-        <h1 class="post-title archive">
-            学习笔记：移动端滚动插件JRoll
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-08
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/08/07/连等赋值例题/">
-        <h1 class="post-title archive">
-            连等赋值例题
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-08-07
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/07/28/告别回调地狱——Promise/">
-        <h1 class="post-title archive">
-            告别回调地狱——Promise
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-07-28
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/04/12/玖富金科-ajax配置属性参考/">
-        <h1 class="post-title archive">
-            玖富金科 ajax配置属性参考
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-04-12
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/04/08/webpack配置文件/">
-        <h1 class="post-title archive">
-            webpack配置文件
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-04-08
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/03/14/在vue中使用scss作为css预编辑器/">
-        <h1 class="post-title archive">
-            在vue中使用scss作为css预编辑器
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-14
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/03/12/vue脚手架的使用/">
-        <h1 class="post-title archive">
-            vue脚手架的使用
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-12
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/02/28/src和href的区别/">
-        <h1 class="post-title archive">
-            src和href的区别
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-02-28
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/02/27/get-VS-post/">
-        <h1 class="post-title archive">
-            get VS post
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-02-27
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-        <li class="previous"><a href="/archives/">&larr;  Nächste Seite</a></li>
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>现在我们比较常用的vue渲染方法是客户端渲染：</p>
+<p>html 仅仅作为静态文件，客户端端在请求时，服务端不做任何处理，直接以原文件的形式返回给客户端客户端，然后根据 html 上的 JavaScript，生成 DOM 插入 html。</p>
+<p><img src="https://static.jkchao.cn/ssr4.jpg?imageMogr2/auto-orient/interlace/1/blur/1x0/quality/75|watermark/2/text/amtjaGFvLmNu/font/5qW35L2T/fontsize/720/fill/I0ZERkRGRA==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="img"></p>
+<p>我们使用vue-cli进行的项目搭建就是这个结构。在首次渲染时，将原 html 中的数据标记（如  ）替换。</p>
+<p>但这种方式有些为人诟病的限制：</p>
+<p>对SEO不友好，首屏渲染慢等</p>
+<p>于是，服务端渲染成了一种解决方案：</p>
+<p>服务端在返回 html 之前，在特定的区域，符号里用数据填充，再给客户端，客户端只负责解析 HTML 。</p>
+<p><img src="https://static.jkchao.cn/ssr2.jpg?imageMogr2/auto-orient/interlace/1/blur/1x0/quality/75|watermark/2/text/amtjaGFvLmNu/font/5qW35L2T/fontsize/720/fill/I0ZERkRGRA==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="img"></p>
+<p>服务端渲染——即ssr解决了SEO和首屏加载慢的问题，同时因为复杂的逻辑部分成为了服务端的任务，ssr还要比客户端渲染更加节能。</p>
+<p>但是相对的，ssr也有着不易维护的缺陷。</p>
+<p><img src="https://static.jkchao.cn/ssr5.png?imageMogr2/auto-orient/interlace/1/blur/1x0/quality/75|watermark/2/text/amtjaGFvLmNu/font/5qW35L2T/fontsize/720/fill/I0ZERkRGRA==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="img"></p>
+<h3 id="vue-SSR的实现"><a href="#vue-SSR的实现" class="headerlink" title="vue SSR的实现"></a>vue SSR的实现</h3><p><img src="https://user-gold-cdn.xitu.io/2018/3/4/161ef7bf329e8812?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ul>
+<li>app.js 作为客户端与服务端的公用入口，导出 Vue 根实例，供客户端 entry 与服务端 entry 使用。客户端 entry 主要作用挂载到 DOM 上，服务端 entry 除了创建和返回实例，还进行路由匹配与数据预获取。</li>
+<li>webpack 为客服端打包一个 Client Bundle ，为服务端打包一个 Server Bundle 。</li>
+<li>服务器接收请求时，会根据 url，加载相应组件，获取和解析异步数据，创建一个读取 Server Bundle 的 BundleRenderer，然后生成 html 发送给客户端。</li>
+<li>客户端混合，客户端收到从服务端传来的 DOM 与自己的生成的 DOM 进行对比，把不相同的 DOM 激活，使其可以能够响应后续变化，这个过程称为<a href="https://link.juejin.im?target=https%3A%2F%2Fssr.vuejs.org%2Fzh%2Fhydration.html" target="_blank" rel="noopener">客户端激活 </a>。为确保混合成功，客户端与服务器端需要共享同一套数据。在服务端，可以在渲染之前获取数据，填充到 stroe 里，这样，在客户端挂载到 DOM 之前，可以直接从 store 里取数据。首屏的动态数据通过 <code>window.__INITIAL_STATE__</code> 发送到客户端。</li>
 </ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
