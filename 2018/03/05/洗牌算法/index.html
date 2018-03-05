@@ -10,6 +10,11 @@
 
     <!--Description-->
     
+        <meta name="description" content="洗牌算法——将有序的若干数通过某种算法将他们打乱。一道非常有趣值得思考的题。
+这个问题的难点在于“随机”二字，因此就用到了一个非常经典的算法：Fisher–Yates
+
+The Fisher–Yates shuffle is an algorithm for generating a random ">
+    
 
     <!--Author-->
     
@@ -18,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Voler"/>
+        <meta property="og:title" content="洗牌算法"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +34,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>Archiv - Voler</title>
+    <title>洗牌算法 - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -126,168 +131,66 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://static01.lvye.com/forum/201509/13/155330h01ald2rzx1ra6nm.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>洗牌算法</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-03-05
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2018/03/05/洗牌算法/">
-        <h1 class="post-title archive">
-            洗牌算法
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-03-05
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>洗牌算法——将有序的若干数通过某种算法将他们打乱。一道非常有趣值得思考的题。</p>
+<p>这个问题的难点在于“随机”二字，因此就用到了一个非常经典的算法：Fisher–Yates</p>
+<blockquote>
+<p>The <strong>Fisher–Yates shuffle</strong> is an <a href="https://en.wikipedia.org/wiki/Algorithm" target="_blank" rel="noopener">algorithm</a> for generating a <a href="https://en.wikipedia.org/wiki/Random_permutation" target="_blank" rel="noopener">random permutation</a> of a finite <a href="https://en.wikipedia.org/wiki/Sequence" target="_blank" rel="noopener">sequence</a>—in plain terms, the algorithm <a href="https://en.wikipedia.org/wiki/Shuffling" target="_blank" rel="noopener">shuffles</a> the sequence. The algorithm effectively puts all the elements into a hat; it continually determines the next element by randomly drawing an element from the hat until no elements remain. The algorithm produces an <a href="https://en.wikipedia.org/wiki/Biased_sample" target="_blank" rel="noopener">unbiased</a> permutation: every permutation is equally likely. The modern version of the algorithm is efficient: it takes time proportional to the number of items being shuffled and shuffles them <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank" rel="noopener">in place</a>.</p>
+</blockquote>
+<h3 id="Fisher–Yates的原理"><a href="#Fisher–Yates的原理" class="headerlink" title="Fisher–Yates的原理"></a>Fisher–Yates的原理</h3><p>1.定义一个数组（shuffled），长度（length）是原数组（arr）长度<br>2.取 0 到 index (初始0) 随机值 rand, shuffled[index] = shuffled[rand], shuffled[rand] = arr[index]<br>3.index++ ; 重复第二步，直到 index = length -1<br>简单来说，就是 shuffled 从 0 到 length-1 的赋值过程，并且新加入的值是 arr[index]。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function random(min, max) &#123;</span><br><span class="line">    if (max == null) &#123;  //判断是否传入最大值参数，如果没有最大值参数则</span><br><span class="line">        max = min;  //将最小值（唯一的参数）传入作为最大值</span><br><span class="line">        min = 0;  //最小值设为0</span><br><span class="line">    &#125;</span><br><span class="line">    return min + Math.floor(Math.random() * (max - min + 1)); //返回一个最小值到最大值中间的随机数</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function shuffle(arr) &#123;</span><br><span class="line">    var i, j, temp; //设置三个变量用于数据交换</span><br><span class="line">    for (i = arr.length - 1; i &gt; 0; i--) &#123;  //从后向前遍历整个原始数组</span><br><span class="line">        j = Math.floor(Math.random() * (i + 1));  //J值随机一个0-i的下标</span><br><span class="line">        temp = arr[i];  //通过第三个变量进行下标i和下标j数值的互换</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    return arr; //返回全部互换完成之后的数组</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>未完待续。。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2018/03/05/初识vue-ssr/">
-        <h1 class="post-title archive">
-            初识vue ssr
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-03-05
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2018/03/05/前端性能优化/">
-        <h1 class="post-title archive">
-            前端性能优化
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-03-05
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/03/04/斐波那契函数的两种写法及递归写法的优化/">
-        <h1 class="post-title archive">
-            斐波那契函数的两种写法及递归写法的优化
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-03-04
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/03/04/javascriptbest中对象的只读方法/">
-        <h1 class="post-title archive">
-            javascriptbest中对象的只读方法
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-03-04
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/01/01/符号的优先级/">
-        <h1 class="post-title archive">
-            符号的优先级
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-01-01
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/11/13/tcp三次握手都做了什么/">
-        <h1 class="post-title archive">
-            tcp三次握手都做了什么
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-11-13
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/10/28/简单记录一下我的ATOM插件/">
-        <h1 class="post-title archive">
-            简单记录一下我的ATOM插件
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-28
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/10/02/jquery给未创建的元素绑定事件/">
-        <h1 class="post-title archive">
-            jquery给未创建的元素绑定事件
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-02
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/09/04/react入门/">
-        <h1 class="post-title archive">
-            react入门
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-09-04
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-        <li class="next"><a href="/archives/page/2/">Vorherige Seite  &rarr;</a></li>
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
