@@ -10,6 +10,15 @@
 
     <!--Description-->
     
+        <meta name="description" content="有这样一道题：
+
+91 is the greatest sequence of 2 consecutive digits.
+In the following 10 digit number:
+123&amp;gt; 1234567890&amp;gt;&amp;gt;
+
+
+67890 is the greatest seq">
+    
 
     <!--Author-->
     
@@ -18,7 +27,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Voler"/>
+        <meta property="og:title" content="递归思想巧妙解决取最大数问题"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +49,7 @@
 
     <!-- Title -->
     
-    <title>Voler</title>
+    <title>递归思想巧妙解决取最大数问题 - Voler</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -127,188 +136,81 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://static01.lvye.com/forum/201509/13/155330h01ald2rzx1ra6nm.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Voler</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>递归思想巧妙解决取最大数问题</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-03-11
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2018/03/11/递归思想巧妙解决取最大数问题/">
-        <h2 class="post-title">
-            递归思想巧妙解决取最大数问题
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-03-11
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/03/07/双向数据绑定（原理篇）/">
-        <h2 class="post-title">
-            双向数据绑定（原理篇）
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-03-07
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/03/05/洗牌算法/">
-        <h2 class="post-title">
-            洗牌算法
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-03-05
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/03/05/初识vue-ssr/">
-        <h2 class="post-title">
-            初识vue ssr
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-03-05
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/03/05/前端性能优化/">
-        <h2 class="post-title">
-            前端性能优化
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-03-05
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/03/04/斐波那契函数的两种写法及递归写法的优化/">
-        <h2 class="post-title">
-            斐波那契函数的两种写法及递归写法的优化
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-03-04
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/03/04/javascriptbest中对象的只读方法/">
-        <h2 class="post-title">
-            javascriptbest中对象的只读方法
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-03-04
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/01/01/符号的优先级/">
-        <h2 class="post-title">
-            符号的优先级
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-01-01
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/11/13/tcp三次握手都做了什么/">
-        <h2 class="post-title">
-            tcp三次握手都做了什么
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-11-13
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/10/28/简单记录一下我的ATOM插件/">
-        <h2 class="post-title">
-            简单记录一下我的ATOM插件
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-10-28
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-        <li class="next"><a href="/page/2/">Older Posts  &rarr;</a></li>
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>有这样一道题：</p>
+<blockquote>
+<p><code>91</code> is the greatest sequence of 2 consecutive digits.</p>
+<p>In the following 10 digit number:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 1234567890</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><code>67890</code> is the greatest sequence of 5 consecutive digits.</p>
+<p>Complete the solution so that it returns the greatest sequence of five consecutive digits found within the number given. The number will be passed in as a string of only digits. It should return a five digit integer. The number passed may be as large as 1000 digits.</p>
+</blockquote>
+<p>要取某段数字中最大的5位连续数字</p>
+<p>通常来说，我们的思路是：</p>
+<p>1.将给出的参数转化为单个数字组成的数组</p>
+<p>2.通过遍历数组，将每一个5位连续数字遍历出来，并通过join()转化为字符串格式</p>
+<p>3.将转化好的数字添加入新的数组中</p>
+<p>4.将新数组用sort()方法进行从大到小的排序</p>
+<p>5.新数组的第一个元素即我们需要的最大数字</p>
+<p>用代码来表示可以这么写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function fn (num) &#123;</span><br><span class="line">	let arr = num.split(&apos;&apos;)</span><br><span class="line">	let arr1 = [];</span><br><span class="line">	for (let i=0;i&lt;arr.length;i++) &#123;</span><br><span class="line">		let z = Number(arr.slice(i,i+5).join(&apos;&apos;))</span><br><span class="line">		arr1.push(z)</span><br><span class="line">	&#125;</span><br><span class="line">	arr1.sort((a,b) =&gt; &#123;</span><br><span class="line">		return b-a</span><br><span class="line">	&#125;)</span><br><span class="line">	return arr1[0]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是，这样的写法，既繁琐，又不能装B凸显我们的智慧。那么如何对其进行改良呢？</p>
+<p>其实，我们可以使用递归的思想去解决这个问题，直接贴代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function solution(digits)&#123;</span><br><span class="line">  if (digits.length &lt;= 5) return Number(digits);</span><br><span class="line">  return Math.max(Number(digits.substr(0, 5)), solution(digits.substr(1)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>除去第一句的判断传入参数是否大于5个数字，整个逻辑只使用了短短的一行就实现了，是不是感觉十分的巧妙？</p>
+<p>solution方法本身是使用Math.max()方法判断两个参数的大小，第一个参数是这个solution函数参数的1至5位组成的数字，后一个参数则是再一次调用solution方法，但传入的参数相较与外层调用传入的参数少了最前面的一位，这就使得想要比较每一个5位数字的大小，就需要不断的调用solution方法解析出第二个5位连续数字，直到满足第一个条件<strong>digits.length &lt;= 5</strong>，再一层一层的向上比较，得出我们所需要的最终结果。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
