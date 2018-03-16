@@ -10,6 +10,10 @@
 
     <!--Description-->
     
+        <meta name="description" content="在最初接触javascript时，数组的去重是作为数组方法的练习题出现的。当时的做法也非常简单，进行两个for循环嵌套，遍历比较如果有相同的数值则跳过，不相同则push进新数组，这个新数组就是去重完成的结果。
+代码实现：
+12345678910111213141516Array.prototype.">
+    
 
     <!--Author-->
     
@@ -162,7 +166,27 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+                <p>在最初接触javascript时，数组的去重是作为数组方法的练习题出现的。当时的做法也非常简单，进行两个for循环嵌套，遍历比较如果有相同的数值则跳过，不相同则push进新数组，这个新数组就是去重完成的结果。</p>
+<p>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.distinct = function () &#123;</span><br><span class="line">	var arr =this,</span><br><span class="line">	result = [],</span><br><span class="line">	i,</span><br><span class="line">	j,</span><br><span class="line">	len = arr.length;</span><br><span class="line">	for (i = 0;  &lt; len; i++) &#123;</span><br><span class="line">		for (j =i + 1; j&lt; len; j++) &#123;</span><br><span class="line">			if (arr[i] === arr[j]) &#123;</span><br><span class="line">				j = ++i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		result.push(arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是这种粗暴的方法一点都不智能，很原始的样子。javascript作为社区如此庞大，如此蓬勃向上发展的语言怎么能够容忍这种情况呢？所以es6中新增加了一种数据结构 <strong>Set</strong>。</p>
+<p>Set结构类似于数组，只不过其成员值都是唯一的，没有重复的值。</p>
+<p>它有以下属性：</p>
+<ul>
+<li>Set.prototype.constructor: 构造函数，默认就是Set函数。</li>
+<li>set.prototype.size : 返回Set的成员总数。</li>
+</ul>
+<p>还有以下方法：</p>
+<ul>
+<li>add(value) : 添加某个值。</li>
+<li>delete(value) : 删除某个值。</li>
+<li>has(value) : 返回一个布尔值，表示该值是否为Set的成员。</li>
+<li>clear() : 清除所有成员。</li>
+</ul>
+<p>Set数据结构正好符合了我们需要对数组去重的要求，所以一个数组去重用一行代码就可以表达出来了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let resultarr = [...new Set(arr)]</span><br></pre></td></tr></table></figure>
+<p>通过new一个Set结构，将arr去重，在通过解构赋值变回数组，一切就是这个么的so easy。</p>
+
 
                 
             </div>
